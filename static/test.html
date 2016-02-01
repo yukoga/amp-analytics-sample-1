@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html amp lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+  <link rel="canonical" href="http://localhost:8080/test.html">
+    <title>Hello my first AMPs</title>
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+  <amp-analytics type="googleanalytics" id="analytics1">
+  <script type="application/json">
+  {
+    "vars": {
+      "account": "UA-24471868-10"  // Replace with your property ID.
+    },
+    "triggers": {
+      "trackPageview": {
+        "on": "visible",
+        "request": "pageview"
+      },
+      // いいねボタンのクリック計測
+      "trackEvent": {
+        "selector": "#iineBtnWrap",
+        "on": "click",
+        "request": "event",
+        "vars": {
+          "eventCategory": "AMP：いいねボタン：クリック",
+          "eventAction": "click"
+        }
+      },
+      // フェイスブックいいね数の計測
+      "trackClickOnFacebookLink" : {
+        "on": "click",
+        "selector": ".facebook", //なにかセレクタを指定するIDか何かを指定いただけると。classが使えるかは分かってないです
+        "request": "social",
+        "vars": {
+            "socialNetwork": "Facebook",
+            "socialAction": "Like",
+            "socialTarget": "http://ameblo.jp/ebizo-ichikawa/" //対象のAMPページのURLにそれぞれ書き換える
+        }
+      },
+      // ツイート数の計測
+      "trackClickOnTwitterLink" : {
+        "on": "click",
+        "selector": "#tweet", //なにかセレクタを指定するIDか何かを指定いただけると。classが使えるかは分かってないです
+        "request": "social",
+        "vars": {
+            "socialNetwork": "twitter",
+            "socialAction": "tweet",
+            "socialTarget": "http://ameblo.jp/ebizo-ichikawa/" //対象のAMPページのURLにそれぞれ書き換える
+        }
+      }
+    }
+  }
+  </script>
+  </amp-analytics>
+  <h1>AMP with Google Analytics test.</h1>
+  <amp-img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Google_Analytics_2014.png" width="310" height="56"></amp-img>
+  <div id="tweet">Tweet button link</div>
+  <div class="facebook">Facebook button link</div>
+</body>
+</html>
+
