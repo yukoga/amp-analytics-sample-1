@@ -14,14 +14,13 @@
   <script type="application/json">
   {
     "vars": {
-      "account": "UA-24471868-10"  // Replace with your property ID.
+      "account": "UA-24471868-10"
     },
     "triggers": {
       "trackPageview": {
         "on": "visible",
         "request": "pageview"
       },
-      // いいねボタンのクリック計測
       "trackEvent": {
         "selector": "#iineBtnWrap",
         "on": "click",
@@ -31,26 +30,24 @@
           "eventAction": "click"
         }
       },
-      // フェイスブックいいね数の計測
       "trackClickOnFacebookLink" : {
         "on": "click",
-        "selector": ".facebook", //なにかセレクタを指定するIDか何かを指定いただけると。classが使えるかは分かってないです
+        "selector": ".facebook",
         "request": "social",
         "vars": {
             "socialNetwork": "Facebook",
             "socialAction": "Like",
-            "socialTarget": "http://ameblo.jp/ebizo-ichikawa/" //対象のAMPページのURLにそれぞれ書き換える
+            "socialTarget": "http://example.com/path-to-some-pages.html"
         }
       },
-      // ツイート数の計測
       "trackClickOnTwitterLink" : {
         "on": "click",
-        "selector": "#tweet", //なにかセレクタを指定するIDか何かを指定いただけると。classが使えるかは分かってないです
+        "selector": "#tweet",
         "request": "social",
         "vars": {
             "socialNetwork": "twitter",
             "socialAction": "tweet",
-            "socialTarget": "http://ameblo.jp/ebizo-ichikawa/" //対象のAMPページのURLにそれぞれ書き換える
+            "socialTarget": "http://example.com/path-to-some-pages.html"
         }
       }
     }
@@ -59,8 +56,8 @@
   </amp-analytics>
   <h1>AMP with Google Analytics test.</h1>
   <amp-img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Google_Analytics_2014.png" width="310" height="56"></amp-img>
-  <div id="tweet">Tweet button link</div>
-  <div class="facebook">Facebook button link</div>
+  <div id="tweet">Tweet button link click here</div>
+  <div class="facebook">Facebook button link click here</div>
 </body>
 </html>
 
