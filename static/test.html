@@ -13,13 +13,18 @@
   <amp-analytics type="googleanalytics" id="analytics1">
   <script type="application/json">
   {
+    "requests": {
+      "pageviewWithCd1Cm1": "${pageview}&cd1=${cd1}&cm1=${cm1}",
+      "eventWithCd1Cm1": "${event}&cd1=${cd1}&cm1=${cm1}",
+      "socialwWithCd1Cm1": "${social}&cd1=${cd1}&cm1=${cm1}"
+    },
     "vars": {
       "account": "UA-24471868-10"
     },
     "triggers": {
       "trackPageview": {
         "on": "visible",
-        "request": "pageview",
+        "request": "pageviewWithCd1Cm1",
         "vars": {
           "cd1": "This is for custom dimension1.",
           "cm1": 10
@@ -28,7 +33,7 @@
       "trackEvent": {
         "selector": "#iineBtnWrap",
         "on": "click",
-        "request": "event",
+        "request": "eventWithCd1Cm1",
         "vars": {
           "eventCategory": "AMP：いいねボタン：クリック",
           "eventAction": "click",
@@ -39,7 +44,7 @@
       "trackClickOnFacebookLink" : {
         "on": "click",
         "selector": ".facebook",
-        "request": "social",
+        "request": "socialCd1Cm1",
         "vars": {
             "socialNetwork": "Facebook",
             "socialAction": "Like",
@@ -51,7 +56,7 @@
       "trackClickOnTwitterLink" : {
         "on": "click",
         "selector": "#tweet",
-        "request": "social",
+        "request": "socialWithCd1Cm1",
         "vars": {
             "socialNetwork": "twitter",
             "socialAction": "tweet",
