@@ -19,7 +19,10 @@
     "triggers": {
       "trackPageview": {
         "on": "visible",
-        "request": "pageview"
+        "request": "pageview",
+        "vars": {
+          "cd1": "This is for custom dimension1."
+        }
       },
       "trackEvent": {
         "selector": "#iineBtnWrap",
@@ -27,7 +30,8 @@
         "request": "event",
         "vars": {
           "eventCategory": "AMP：いいねボタン：クリック",
-          "eventAction": "click"
+          "eventAction": "click",
+          "cd1": "This is for custom dimension1."
         }
       },
       "trackClickOnFacebookLink" : {
@@ -37,7 +41,8 @@
         "vars": {
             "socialNetwork": "Facebook",
             "socialAction": "Like",
-            "socialTarget": "http://example.com/path-to-some-pages.html"
+            "socialTarget": "http://example.com/path-to-some-pages.html",
+            "cd1": "This is for custom dimension1."
         }
       },
       "trackClickOnTwitterLink" : {
@@ -47,7 +52,8 @@
         "vars": {
             "socialNetwork": "twitter",
             "socialAction": "tweet",
-            "socialTarget": "http://example.com/path-to-some-pages.html"
+            "socialTarget": "http://example.com/path-to-some-pages.html",
+            "cd1": "This is for custom dimension1."
         }
       }
     }
